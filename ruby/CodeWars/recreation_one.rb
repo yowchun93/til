@@ -3,8 +3,6 @@
 # 1. Firstly find out the divisors for one number first 
 # 2. Find out whether the sum of the divisors are a square
 
-# zero division error lol
-
 def list_squared(starting, ending) 
     new_array = []
     (starting..ending).each do |number|
