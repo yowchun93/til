@@ -5,6 +5,17 @@
 
 # zero division error lol
 
+def list_squared(starting, ending) 
+    new_array = []
+    (starting..ending).each do |number|
+        divisibles = squared_divisibles(number)
+        if perfect_square?(divisibles)
+            new_array << [number, sum_of_divisibles(divisibles)]
+        end
+    end
+    return new_array
+end
+
 # this method will take in a number of values 
 # say
 def squared_divisibles(number)
@@ -18,10 +29,19 @@ def squared_divisibles(number)
 end
 
 ## method to check if perfect square 
+## need to return two values 
 def perfect_square?(divisibles)
-    sum = divisibles.reduce(:+)
-    Math.sqrt(sum).to_i ** 2 == sum
+    sum = sum_of_divisibles(divisibles)
+    perfect_square = Math.sqrt(sum).to_i ** 2 == sum
 end
 
-divisibles = squared_divisibles(42)
-puts perfect_square?(divisibles)
+def sum_of_divisibles(divisibles)
+    divisibles.reduce(:+)
+end
+
+## get a list of squared divisibles
+# 
+# divisibles = squared_divisibles(42)
+# puts perfect_square?(divisibles)
+p list_squared(1,250)
+
