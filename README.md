@@ -10,9 +10,13 @@ A collection of things  small things I learn day to day during my work accross d
 * [Typescript] (#typescript)
 
 ### Rails
-- [ActiveRecord love blocks](rails/active_record_love_blocks.md)
+- [ActiveRecord love blocks] (rails/active_record_love_blocks.md)
+- [Extract options] (rails/extract_options.md)
+- [Overiding Accessors] (rails/overiding_accessor.md)
+- [Rendering outside of Rails controller] (rails/rendering_outside_of_controller.md)
 
 ### Ruby
-
+- [Include vs Extend] (ruby/include_vs_extend.md)
+- [Gsub multiple attributes] (ruby/gsub_multiple_attributes.md)
 
 ### Typescript
