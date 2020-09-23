@@ -77,3 +77,61 @@ In React, it is possible to pass a prop whose value is a function to control wha
     }
   }
 ```
+
+Another good example i found, which i think is easier to understand
+The concept of "Wrapper Component" is key to understanding render props
+
+```jsx
+// Hover will act as a Wrapper component
+class Hover extends React.Component {
+	state = { hovering: false}
+	mouseOver = () => this.setState({ hovering: true })
+	mouseOut  = () => this.setState({ hovering: false })
+
+	render() {
+		return (
+			<div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+				{this.props.render(this.state.hovering)}
+			</div>
+		)
+	}
+}
+
+function Info (props) {
+  // hovering state is passed from Wrapper Hover component
+  const { hovering } = this.props
+  return (
+    <div>
+      {props.hovering === true ? <Tooltip id="info"/> : null }
+    </div>
+  )
+}
+
+<Hover render={(hovering) =>
+  <Info hovering={hovering} />
+}>
+```
+
+Same example but uses passes children as function
+
+```jsx
+class Hover extends React.Component {
+	state = { hovering: false}
+	mouseOver = () => this.setState({ hovering: true })
+	mouseOut  = () => this.setState({ hovering: false })
+
+	render() {
+		return (
+			<div onMouseOver={this.mouseOver} onMouseOut={this.mouseOut}>
+				{this.props.children(this.state.hovering)}
+			</div>
+		)
+	}
+}
+
+<Hover>
+  {(hovering) => <Info hovering={hovering} />}
+</Hover>
+}>
+
+```
