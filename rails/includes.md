@@ -24,4 +24,5 @@
   item_names Categories.includes(:item).map do |item|
     category.item.colors.first
   end
+
 ```
